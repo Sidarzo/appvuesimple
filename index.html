@@ -5,46 +5,27 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1" />
 		<title>Cherche ton musée !</title>
 		<style>
+            .body {
+                font-family: 'Source Sans Pro', sans-serif;
+            }
             .bar {
-                background-color: #5c9bb7;
-
-                background-image: -webkit-linear-gradient(
-                    top,
-                    #5c9bb7,
-                    #5392ad
-                );
-                background-image: -moz-linear-gradient(top, #5c9bb7, #5392ad);
-                background-image: linear-gradient(top, #5c9bb7, #5392ad);
-
-                box-shadow: 0 1px 1px #ccc;
-                border-radius: 2px;
-                width: 600px;
-                padding: 14px;
-                margin: 45px auto 20px;
-                position: relative;
+                width: 400px;
+                margin: 0px auto; 
+                background-color: white; 
+                box-shadow: 0px 5px 20px #999; 
+                margin-top: 2%;
+                margin-bottom: 2%;
+                text-align: center;
+                padding: 10px;
             }
 
-            .bar input {
-                background: #fff no-repeat 13px 13px;
-                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkU5NEY0RTlFMTA4NzExRTM5RTEzQkFBQzMyRjkyQzVBIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkU5NEY0RTlGMTA4NzExRTM5RTEzQkFBQzMyRjkyQzVBIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RTk0RjRFOUMxMDg3MTFFMzlFMTNCQUFDMzJGOTJDNUEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RTk0RjRFOUQxMDg3MTFFMzlFMTNCQUFDMzJGOTJDNUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4DjA/RAAABK0lEQVR42pTSQUdEURjG8dOY0TqmPkGmRcqYD9CmzZAWJRHVRIa0iFYtM6uofYaiEW2SRJtEi9YxIklp07ZkWswu0v/wnByve7vm5ee8M+85zz1jbt9Os+WiGkYdYxjCOx5wgFeXUHmtBSzpcCGa+5BJTCjEP+0nKWAT8xqe4ArPGEEVC1hHEbs2oBwdXkM7mj/JLZrad437sCGHOfUtcziutuYu2v8XUFF/4f6vMK/YgAH1HxkBYV60AR31gxkBYd6xAeF3VzMCwvzOBpypX8V4yuFRzX2d2gD/l5yjH4fYQEnzkj4fae5rJulF2sMXVrAsaTWttRFu4Osb+1jEDT71/ZveyhouTch2fINQL9hKefKjuYFfuznXWzXMTabyrvfyIV3M4vhXgAEAUMs7K0J9UJAAAAAASUVORK5CYII=);
 
-                border: none;
-                width: 100%;
-                line-height: 19px;
-                padding: 11px 0;
-
-                border-radius: 2px;
-                box-shadow: 0 2px 8px #c4c4c4 inset;
-                text-align: left;
-                font-size: 14px;
-                font-family: inherit;
-                color: #738289;
-                font-weight: bold;
-                outline: none;
-                text-indent: 40px;
-            }
             .title {
                 text-align: center;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-weight: bold;
+
+
             }
             /* CARD */
             .card {
@@ -96,24 +77,24 @@
 	</head>
 	<body>
 		<div id="demo">
-			<h1 class="title">Musées</h1>
+			<h1 class="title">Super appli pour trouver les musées près de chez vous !!!!</h1>
 
             <div class="bar">
                 <label for="regions">Régions</label>
                 <input type="radio" id="regions" value="regions" v-model="searchType">
                 <br>
-                <label for="departements">Départements</label>
-                <input type="radio" id="departements" value="departements" v-model="searchType">
+                <label for="departments">Départements</label>
+                <input type="radio" id="departments" value="departments" v-model="searchType">
                 <br>
                 
                 <select v-if="searchType === 'regions'" v-model="searchString">
-                    <option value="">--Please choose an option--</option>
+                    <option value="">--Sélectionnez votre région!--</option>
                     <option v-for="region in regions">{{region.nom}}</option>
                 </select>
 
-                <select v-if="searchType === 'departements'" v-model="searchString">
-                    <option value="">--Please choose an option--</option>
-                    <option v-for="departement in departements">{{departement.nom}}</option>
+                <select v-if="searchType === 'departments'" v-model="searchString">
+                    <option value="">--Sélectionnez votre département!--</option>
+                    <option v-for="departement in departments">{{departement.nom}}</option>
                 </select>
             </div>
             <div v-for="museum in museums" class="card">
@@ -140,13 +121,12 @@
 		<script>
 			const apiURLRegions = "https://geo.api.gouv.fr/regions";
             const apiUrlMuseumsWithRegions = "https://data.culture.gouv.fr/api/records/1.0/search/?dataset=liste-et-localisation-des-musees-de-france&q=&facet=region_administrative&facet=departement&refine.region_administrative="
-			const apiUrlMuseumsWithDepartement = "https://data.culture.gouv.fr/api/records/1.0/search/?dataset=liste-et-localisation-des-musees-de-france&q=&facet=departement&refine.departement="
-            const apiURLDepartements = "https://geo.api.gouv.fr/departements?fields=nom"
+			const apiUrlMuseumsWithDepartments = "https://data.culture.gouv.fr/api/records/1.0/search/?dataset=liste-et-localisation-des-musees-de-france&q=&facet=departement&refine.departement="
+            const apiURLDepartments = "https://geo.api.gouv.fr/departements?fields=nom"
             
             const configRegion = {
 			};
             const configMuseum = {
-
             }
 
 			Vue.createApp({
@@ -155,7 +135,7 @@
 						regions: null,
                         museums: null,
                         searchString: null,
-                        departements:null,
+                        departments:null,
                         searchType: "regions"
 					};
 				},
@@ -163,7 +143,7 @@
 				created: function () {
 					this.fetchDataRegionsAsync();
                     this.fetchDataMuseumsAsync();
-                    this.fetchDataDepartementsAsync();
+                    this.fetchDataDepartmentsAsync();
 
 				},
 				watch: {
@@ -180,10 +160,10 @@
 					    console.log(error);
 					  }
 					},
-                    fetchDataDepartementsAsync: async function () {
+                    fetchDataDepartmentsAsync: async function () {
 						try {
-					  	const response = await axios.get(apiURLDepartements, configRegion)
-						  this.departements = response.data
+					  	const response = await axios.get(apiURLDepartments, configRegion)
+						  this.departments = response.data
 					  } catch(error) {
 					    console.log(error);
 					  }
@@ -197,8 +177,8 @@
                                     const response = await axios.get(apiUrlMuseumsWithRegions + this.searchString, configMuseum)
                                     this.museums = response.data.records
                                     console.log(response.data.records);
-                                }else if(this.searchType === "departements"){
-                                    const response = await axios.get(apiUrlMuseumsWithDepartement + this.searchString, configMuseum)
+                                }else if(this.searchType === "departments"){
+                                    const response = await axios.get(apiUrlMuseumsWithDepartments + this.searchString, configMuseum)
                                     this.museums = response.data.records
                                     console.log(response.data.records);
                                 }
