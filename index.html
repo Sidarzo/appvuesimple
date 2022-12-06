@@ -96,7 +96,6 @@
 	</head>
 	<body>
 		<div id="demo">
-			<!-- <pre>{{commits}}</pre> -->
 			<h1 class="title">Musées</h1>
             <div class="bar">
                 <input
@@ -138,8 +137,9 @@
 			Vue.createApp({
 				data() {
 					return {
-						regions: null,
+						regions: {},
                         museums: null,
+                        searchString: null,
 					};
 				},
 
@@ -148,11 +148,13 @@
                     this.fetchDataMuseumsAsync();
 
 				},
+				watch: {
+					searchString: "fetchDataMuseumsAsync", //fetchDataAsync
+				},
 				methods: {
 					fetchDataRegionsAsync: async function () {
 						try {
 					  	const response = await axios.get(apiURLRegions, configRegion)
-						  console.log(response.data)
 						  this.regions = response.data
 					  } catch(error) {
 					    console.log(error);
@@ -160,9 +162,13 @@
 					},
                     fetchDataMuseumsAsync: async function () {
 						try {
-					  	const response = await axios.get(apiUrlMuseums + "Pays-de-la-Loire", configMuseum)
-						  this.museums = response.data.records
-					         console.log(response.data.records);
+
+                            if(this.searchString){
+                                console.log(this.shearchInRegions())
+                            }
+					  	// const response = await axios.get(apiUrlMuseums + searchString, configMuseum)
+						//   this.museums = response.data.records
+					        //  console.log(response.data.records);
 					  } catch(error) {
 					    console.log(error);
 					  }
@@ -170,6 +176,15 @@
                     shearchMuseum(museum){
                         console.log(museum)
                         open(`https://www.openstreetmap.org/directions?from=&to=${museum.latitude}%2C${museum.longitude}#map=16/${museum.latitude}/${museum.longitude}`,'_blank')
+                    },
+                    shearchInRegions(){
+                        for (r in this.regions) {
+                            console.log(r.nom)
+                            if(this.searchString == r.nom){
+                                return true
+                            }
+                            return false
+                        }
                     }
 				},
 			}).mount("#demo");
