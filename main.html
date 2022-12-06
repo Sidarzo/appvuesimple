@@ -43,6 +43,41 @@
                 outline: none;
                 text-indent: 40px;
             }
+
+            /* CARD */
+            .card {
+                width: 400px;
+                margin: 0px auto; 
+                background-color: white; 
+                box-shadow: 0px 5px 20px #999; 
+                margin-top: 2%;
+                margin-bottom: 2%;
+            }
+            .card a { 
+                color: #333; 
+                text-decoration: none;
+            }
+            .card-body {
+                text-align:center;  
+                padding: 15px 20px; 
+                box-sizing: border-box;   
+            }
+            .card-title {
+                font-family: 'Source Sans Pro', sans-serif;
+                }
+
+
+
+            .card-title {
+                text-align:center;
+                text-transform:uppercase;
+                font-weight: bold;
+            }
+
+            .card-date, .card-text {
+                color: #777;
+            }
+
 		</style>
 	</head>
 	<body>
@@ -57,11 +92,15 @@
                 />
             </div>
             <div v-for="museum in museums" class="card">
-                <div class="card-title">
-                    {{museum.fields.nom_officiel_du_musee}}
+                <div class="card-body">
+                    <div class="card-title">
+                        {{museum.fields.nom_officiel_du_musee}}
+                    </div>
+                    <div class="card-text">
+
+                    </div>
                 </div>
             </div>
-			
 		</div>
 
         <!-- datasetid
