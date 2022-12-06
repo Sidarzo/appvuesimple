@@ -1,8 +1,10 @@
 # appvuesimple
 
+Application qui liste les musées en fonction de la région ou le département sélectionné.
+
 # APIs
 
-J'utilise l'API du gouvernement pour récupérer toutes les régions
+J'utilise l'API du gouvernement pour récupérer toutes les régions / départements
 https://api.gouv.fr/documentation/api-geo
 
 

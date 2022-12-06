@@ -126,8 +126,11 @@
 		<script src="https://unpkg.com/vue@3"></script>
 		<script>
 			const apiURLRegions = "https://geo.api.gouv.fr/regions";
-            const apiUrlMuseums = "https://data.culture.gouv.fr/api/records/1.0/search/?dataset=liste-et-localisation-des-musees-de-france&q=&facet=region_administrative&facet=departement&refine.region_administrative="
-			const configRegion = {
+            const apiUrlMuseumsWithRegions = "https://data.culture.gouv.fr/api/records/1.0/search/?dataset=liste-et-localisation-des-musees-de-france&q=&facet=region_administrative&facet=departement&refine.region_administrative="
+			const apiUrlMuseumsWithDepartement = "https://data.culture.gouv.fr/api/records/1.0/search/?dataset=liste-et-localisation-des-musees-de-france&q=&facet=departement&refine.departement="
+            const apiURLDepartements = "https://geo.api.gouv.fr/departements?fields=nom"
+            
+            const configRegion = {
 			};
             const configMuseum = {
 
@@ -136,9 +139,10 @@
 			Vue.createApp({
 				data() {
 					return {
-						regions: {},
+						regions: null,
                         museums: null,
                         searchString: null,
+                        departements:null,
 					};
 				},
 
@@ -159,10 +163,19 @@
 					    console.log(error);
 					  }
 					},
+                    fetchDataDepartementsAsync: async function () {
+						try {
+					  	const response = await axios.get(apiURLDepartements, configRegion)
+						  this.departements = response.data
+					  } catch(error) {
+					    console.log(error);
+					  }
+					},
+
                     fetchDataMuseumsAsync: async function () {
 						try {
                             if(this.searchString){
-                                const response = await axios.get(apiUrlMuseums + this.searchString, configMuseum)
+                                const response = await axios.get(apiUrlMuseumsWithRegions + this.searchString, configMuseum)
 						        this.museums = response.data.records
 					            console.log(response.data.records);
                             }
