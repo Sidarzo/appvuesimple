@@ -97,10 +97,23 @@
 	<body>
 		<div id="demo">
 			<h1 class="title">Musées</h1>
+
             <div class="bar">
-                <select v-model="searchString">
+                <label for="regions">Régions</label>
+                <input type="radio" id="regions" value="regions" v-model="searchType">
+                <br>
+                <label for="departements">Départements</label>
+                <input type="radio" id="departements" value="departements" v-model="searchType">
+                <br>
+                
+                <select v-if="searchType === 'regions'" v-model="searchString">
                     <option value="">--Please choose an option--</option>
                     <option v-for="region in regions">{{region.nom}}</option>
+                </select>
+
+                <select v-if="searchType === 'departements'" v-model="searchString">
+                    <option value="">--Please choose an option--</option>
+                    <option v-for="departement in departements">{{departement.nom}}</option>
                 </select>
             </div>
             <div v-for="museum in museums" class="card">
@@ -143,16 +156,20 @@
                         museums: null,
                         searchString: null,
                         departements:null,
+                        searchType: "regions"
 					};
 				},
 
 				created: function () {
 					this.fetchDataRegionsAsync();
                     this.fetchDataMuseumsAsync();
+                    this.fetchDataDepartementsAsync();
 
 				},
 				watch: {
-					searchString: "fetchDataMuseumsAsync", //fetchDataAsync
+					searchString: "fetchDataMuseumsAsync",
+                    searchType: "fetchDataMuseumsAsync",
+
 				},
 				methods: {
 					fetchDataRegionsAsync: async function () {
@@ -175,9 +192,17 @@
                     fetchDataMuseumsAsync: async function () {
 						try {
                             if(this.searchString){
-                                const response = await axios.get(apiUrlMuseumsWithRegions + this.searchString, configMuseum)
-						        this.museums = response.data.records
-					            console.log(response.data.records);
+                                console.log(this.searchType)
+                                if(this.searchType === "regions"){
+                                    const response = await axios.get(apiUrlMuseumsWithRegions + this.searchString, configMuseum)
+                                    this.museums = response.data.records
+                                    console.log(response.data.records);
+                                }else if(this.searchType === "departements"){
+                                    const response = await axios.get(apiUrlMuseumsWithDepartement + this.searchString, configMuseum)
+                                    this.museums = response.data.records
+                                    console.log(response.data.records);
+                                }
+
                             }
 
 					  } catch(error) {
