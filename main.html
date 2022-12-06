@@ -102,7 +102,7 @@
                         Adresse : {{museum.fields.adresse}}<Br>
                         Code postal : {{museum.fields.code_postal}}<Br>
                         Commune : {{museum.fields.commune}}<Br>
-                        <a href="{{museum.fields.url}}">Site WEB</a><br>
+                        <a href='{{museum.fields.url}}'>Site WEB</a><br>
                         {{museum.fields.telephone}}
 
                     </div>
@@ -156,7 +156,7 @@
 					},
                     shearchMuseum(museum){
                         console.log(museum)
-                        open(`https://www.openstreetmap.org/directions?from=&to=${museum.latitude}%2C${museum.longitude}`,'_blank')
+                        open(`https://www.openstreetmap.org/directions?from=&to=${museum.latitude}%2C${museum.longitude}#map=16/${museum.latitude}/${museum.longitude}`,'_blank')
                     }
 				},
 			}).mount("#demo");
