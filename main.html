@@ -53,6 +53,9 @@
                 margin-top: 2%;
                 margin-bottom: 2%;
             }
+            .card:hover {
+                background-color: rgb(233, 233, 233);
+            }
             .card a { 
                 color: #333; 
                 text-decoration: none;
@@ -65,8 +68,6 @@
             .card-title {
                 font-family: 'Source Sans Pro', sans-serif;
                 }
-
-
 
             .card-title {
                 text-align:center;
@@ -96,45 +97,19 @@
                     <div class="card-title">
                         {{museum.fields.nom_officiel_du_musee}}
                     </div>
+                    <hr>
                     <div class="card-text">
+                        Adresse : {{museum.fields.adresse}}<Br>
+                        Code postal : {{museum.fields.code_postal}}<Br>
+                        Commune : {{museum.fields.commune}}<Br>
+                        <a href="{{museum.fields.url}}">Site WEB</a><br>
+                        {{museum.fields.telephone}}
 
                     </div>
+                    <button class="card-button" v-on:click="shearchMuseum(museum.fields)">Chercher sur la carte</button>
                 </div>
             </div>
 		</div>
-
-        <!-- datasetid
-        "liste-et-localisation-des-musees-de-france"
-        fields
-        adresse
-        "82 rue Pierre Abélard"
-        code_postal
-        "44330"
-        commune
-        "Le Pallet"
-        date_arrete_attribution_appellation
-        "2003-02-01"
-        departement
-        "Loire-Atlantique"
-        geolocalisation
-        (2) [47.134414, -1.329883]
-        identifiant_museofile
-        "M0742"
-        latitude
-        47.134414
-        longitude
-        -1.329883
-        nom_officiel_du_musee
-        "musée du vignoble nantais"
-        ref_deps
-        "4417701"
-        region_administrative
-        "Pays-de-la-Loire"
-        telephone
-        "02 40 80 90 13"
-        url
-        "www.musee-vignoble-nantais.eu/accueil/"
- -->
 
 		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 		<script src="https://unpkg.com/vue@3"></script>
@@ -179,6 +154,10 @@
 					    console.log(error);
 					  }
 					},
+                    shearchMuseum(museum){
+                        console.log(museum)
+                        open(`https://www.openstreetmap.org/directions?from=&to=${museum.latitude}%2C${museum.longitude}`,'_blank')
+                    }
 				},
 			}).mount("#demo");
 		</script>
