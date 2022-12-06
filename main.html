@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Cherche ton musée !</title>
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<div id="demo">
+			<!-- <pre>{{commits}}</pre> -->
+			<h1>Musée</h1>
+			
+		</div>
+
+        
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="https://unpkg.com/vue@3"></script>
+		<script>
+			const apiURLregions =
+				"https://geo.api.gouv.fr/regions";
+			const configRegion = {
+			};
+
+			Vue.createApp({
+				data() {
+					return {
+						regions: null,
+					};
+				},
+
+				created: function () {
+					this.fetchDataAsync();
+				},
+
+				watch: {
+					currentBranch: "fetchDataAsync", 
+				},
+				methods: {
+					fetchDataAsync: async function () {
+						try {
+					  	const response = await axios.get(apiURLregions, configRegion)
+						  console.log(response.data)
+						  this.regions = response.data
+					         console.log(self.regions);
+					  } catch(error) {
+					    console.log(error);
+					  }
+					},
+				},
+			}).mount("#demo");
+		</script>
+	</body>
+</html>
