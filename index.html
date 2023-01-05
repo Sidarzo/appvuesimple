@@ -112,7 +112,7 @@
                         Adresse : {{museum.fields.adresse}}<Br>
                         Code postal : {{museum.fields.code_postal}}<Br>
                         Commune : {{museum.fields.commune}}<Br>
-                        <a href={{museum.fields.url}}>Site WEB</a><br>
+                        <a v-bind:href= "museum.fields.url" target="_blank">Site WEB</a><br>
                         {{museum.fields.telephone}}
 
                     </div>
