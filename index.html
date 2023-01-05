@@ -177,13 +177,14 @@
                     fetchDataMuseumsAsync: async function () {
 						try {
                             if(this.searchString){
-        
+                                let newSearchString = this.searchString.replace(/ /g, "-");
+
                                 if(this.searchType === "regions"){
-                                    const response = await axios.get(apiUrlMuseumsWithRegions + this.searchString, configMuseum)
+                                    const response = await axios.get(apiUrlMuseumsWithRegions + newSearchString, configMuseum)
                                     this.museums = response.data.records
                                     console.log(response.data.records);
                                 }else if(this.searchType === "departments"){
-                                    const response = await axios.get(apiUrlMuseumsWithDepartments + this.searchString, configMuseum)
+                                    const response = await axios.get(apiUrlMuseumsWithDepartments + newSearchString, configMuseum)
                                     this.museums = response.data.records
                                     console.log(response.data.records);
                                 }
