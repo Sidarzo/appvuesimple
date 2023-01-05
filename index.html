@@ -6,9 +6,11 @@
 		<title>Cherche ton musée !</title>
 		<style>
             .body {
-                font-family: 'Source Sans Pro', sans-serif;
+                font-family: 'Roboto', sans-serif; /* Utilise la police Roboto */
+
             }
             .bar {
+                font-family: 'Roboto', sans-serif; /* Utilise la police Roboto */
                 width: 400px;
                 margin: 0px auto; 
                 background-color: white; 
@@ -22,19 +24,23 @@
 
             .title {
                 text-align: center;
-                font-family: 'Source Sans Pro', sans-serif;
-                font-weight: bold;
-
-
+                font-family: 'Roboto', sans-serif; /* Utilise la police Roboto */
+                font-size: 2em; /* Taille de la police */
+                font-weight: 500; /* Gras */
+                color: #333; /* Couleur de la police */
+                text-transform: uppercase; /* Met en majuscules */
+                letter-spacing: 1px; /* Espacement des lettres */
             }
             /* CARD */
             .card {
+                display: inline-block; /* Affiche l'élément en tant qu'élément en ligne */
+                width: 400px; /* Largeur de l'élément */
+                margin: 2% 2% 2% 2%; /* Marge latérale de 2% */
+                vertical-align: top; /* Alignement vertical du haut */
                 width: 400px;
-                margin: 0px auto; 
+                height: 200px;
                 background-color: white; 
                 box-shadow: 0px 5px 20px #999; 
-                margin-top: 2%;
-                margin-bottom: 2%;
             }
             .card:hover {
                 background-color: rgb(233, 233, 233);
@@ -50,7 +56,6 @@
             }
 
             .card-title {
-                font-family: 'Source Sans Pro', sans-serif;
                 text-align:center;
                 text-transform:uppercase;
                 font-weight: bold;
@@ -172,7 +177,7 @@
                     fetchDataMuseumsAsync: async function () {
 						try {
                             if(this.searchString){
-                                console.log(this.searchType)
+        
                                 if(this.searchType === "regions"){
                                     const response = await axios.get(apiUrlMuseumsWithRegions + this.searchString, configMuseum)
                                     this.museums = response.data.records
